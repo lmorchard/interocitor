@@ -1,0 +1,18 @@
+# Local settings
+from settings import *
+from os.path import abspath, dirname, join
+
+DEBUG = True
+DEV = True
+SERVE_MEDIA = DEBUG
+EMAIL_DEBUG = DEBUG
+
+CACHE_BACKEND = 'file://%s/cache' % ( abspath(dirname(__file__)) )
+MAILER_EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+import logging
+logging.basicConfig(
+    level = logging.DEBUG,
+    format = '%(asctime)s %(levelname)s %(message)s',
+)
+
