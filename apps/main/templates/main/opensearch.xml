@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+{% load i18n %}
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>{% blocktrans %}{{ SITE_NAME }}{% endblocktrans %}</ShortName>
+  <Description>{% trans "Search all entries on {{ SITE_NAME }}" %}</Description>
+  <Image width="16" height="16" type="image/png">http://{{ SITE_DOMAIN }}{{ STATIC_URL }}img/favicon.png</Image>
+  <Url type="text/html" template="http://{{ SITE_DOMAIN }}/search/?q={searchTerms}"/>
+</OpenSearchDescription>

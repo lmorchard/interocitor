@@ -1,7 +1,11 @@
 {% extends "site_base.html" %}
 
+{% load i18n %}
+
 {% block extra_head %}
     <link rel="stylesheet" href="{{ STATIC_URL }}main/css/main.css" />
+    <link rel="search" type="application/opensearchdescription+xml"          
+        title="{% blocktrans %}{{ SITE_NAME }}{% endblocktrans %}" href="{% url opensearch %}" />
 {% endblock %}
 
 {% block extra_body %}

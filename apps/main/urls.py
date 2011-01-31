@@ -29,6 +29,11 @@ urlpatterns = patterns('main.views',
     url(r'^u:(?P<username>[^/]+)/(?P<slug>[^/]+)/?$', 
         'entry_detail', name="main_entry_detail"),
 
+    url(r'^opensearch.xml$', direct_to_template,
+        { 'template': 'main/opensearch.xml',
+          'mimetype': 'application/opensearchdescription+xml' },
+        name="opensearch"),
+
 #    url(r'feeds/(?P<format>[^/]+)/all/', RecentSubmissionsFeed(), 
 #        name="demos_feed_recent"),
 #    url(r'feeds/(?P<format>[^/]+)/featured/', FeaturedSubmissionsFeed(), 
