@@ -15,12 +15,21 @@
 {% endblock %}
 
 {% block right_tabs %}
+    <ul class="tabs">
     {% if user.is_authenticated %}
-        <ul class="tabs">{% spaceless %}
-            <li id="tab_profile"><a href="{% url profile_detail user.username %}">{% trans "Profile" %}</a></li>
+        {% spaceless %}
+            <li id="tab_post"><a href="{% url main_post user.username %}">{% trans "New Post" %}</a></li>
+            <li id="tab_profile"><a href="{% url main_profile user.username %}">{% trans "Profile" %}</a></li>
             <li id="tab_notices"><a href="{% url notification_notices %}">{% trans "Notices" %}{% if notice_unseen_count %} ({{ notice_unseen_count }}){% endif %}</a></li>
-        {% endspaceless %}</ul>
+        {% endspaceless %}
     {% endif %}
+    <li id="tab_search">
+        <form action="{% url main_search %}" method="GET">
+            <input type="text" name="q" placeholder="search entries" 
+                value="{{ request.GET.q }}" size="20" />
+        </form>
+    </li>
+    </ul>
 {% endblock %}
 
 {% block footer %}
@@ -34,6 +43,7 @@
 {% endblock %}
 
 {% block extra_body_base %}
+    <script src="{{ STATIC_URL }}js/jquery-1.4.4.min.js"></script>
     {% ga %}
     {% block extra_body %}{% endblock %}
 {% endblock %}

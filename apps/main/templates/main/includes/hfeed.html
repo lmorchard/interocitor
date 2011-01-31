@@ -1,0 +1,29 @@
+{% load i18n %}
+{% load humanize %}
+{% load cache %}
+{% load tagging_tags %}
+{% load extend_qs %}
+
+<ul class="hfeed">
+    {% for entry in entry_list %}
+        {% include "main/includes/hentry.html" %}
+    {% endfor %}
+</ul>
+
+{% if is_paginated %}
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?{% extend_qs request.GET page page_obj.previous_page_number %}">{% trans "previous" %}</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?{% extend_qs request.GET page page_obj.next_page_number %}">{% trans "next" %}</a>
+            {% endif %}
+        </span>
+    </div>
+{% endif %}

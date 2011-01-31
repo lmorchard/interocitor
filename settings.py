@@ -108,6 +108,7 @@ MIDDLEWARE_CLASSES = [
 ROOT_URLCONF = "interocitor.urls"
 
 TEMPLATE_DIRS = [
+    os.path.join(PROJECT_ROOT, "apps", "main", "templates"),
     os.path.join(PROJECT_ROOT, "templates"),
     os.path.join(PINAX_ROOT, "templates", PINAX_THEME),
 ]
@@ -139,6 +140,8 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     "django.contrib.messages",
     "django.contrib.humanize",
+
+    'django_extensions',
     
     "pinax.templatetags",
     
@@ -155,6 +158,9 @@ INSTALLED_APPS = [
     "announcements",
     "pagination",
     "idios",
+
+    "tagging",
+    "tagging_ext",
     
     # Pinax
     "pinax.apps.account",
@@ -164,6 +170,8 @@ INSTALLED_APPS = [
     # project
     "about",
     "profiles",
+
+    "main",
 ]
 
 FIXTURE_DIRS = [
@@ -173,7 +181,7 @@ FIXTURE_DIRS = [
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
 ABSOLUTE_URL_OVERRIDES = {
-    "auth.user": lambda o: "/profiles/profile/%s/" % o.username,
+    "auth.user": lambda o: "/u:%s/" % o.username,
 }
 
 AUTH_PROFILE_MODULE = "profiles.Profile"
@@ -190,7 +198,8 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 LOGIN_URL = "/account/login/" # @@@ any way this can be a url name?
-LOGIN_REDIRECT_URLNAME = "what_next"
+#LOGIN_REDIRECT_URLNAME = "what_next"
+LOGIN_REDIRECT_URLNAME = "main_user_home"
 
 EMAIL_CONFIRMATION_DAYS = 2
 EMAIL_DEBUG = DEBUG

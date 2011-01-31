@@ -1,0 +1,36 @@
+{% load i18n %}
+{% load humanize %}
+{% load cache %}
+{% load tagging_tags %}
+
+<li class="hentry verb-{{entry.verb_type}} object-{{entry.object_type}}" id="entry-{{entry.uuid}}">
+    <h4 class="entry-title">
+        {% if not entry.link %}
+            <a href="{{entry.get_absolute_url}}" rel="related">{{ entry.title }}</a>
+        {% else %}
+            <a href="{{entry.link}}" rel="bookmark">{{ entry.title }}</a>
+        {% endif %}
+    </h4>
+    <address class="author">{{ entry.actor_user }}</address>
+    <time class="published" pubdate="pubdate" 
+        datetime="{{entry.published|date:"Y-m-d\TH:i:sO"}}" 
+        title="{{entry.published|date:"Y-m-d\TH:i:sO"}}">
+        <a rel="bookmark" href="{{entry.get_absolute_url}}">{{entry.published|date:"DATETIME_FORMAT"}}</a>
+    </time>
+    {% if entry.summary and entry.summary != entry.title %}
+        <div class="entry-summary">{{entry.summary}}</div>
+    {% endif %}
+    {% if entry.content and entry.content != entry.title and entry.content != entry.summary %}
+        <div class="entry-content">{{entry.content}}</div>
+    {% endif %}
+    {% tags_for_object entry as tags %}
+    {% if tags %}
+        <ul class="tags">
+            {% for tag in tags %}
+                <li>
+                    <a class="tag" href="{% url main_profile_tag username=entry.actor_user.username tag_name=tag.name %}">{{ tag.name }}</a> 
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</li>

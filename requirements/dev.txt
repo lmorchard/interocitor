@@ -1,0 +1,12 @@
+# Development-specific requirements go here.
+--requirement=project.txt
+
+Werkzeug
+django-debug-toolbar==0.8.3
+
+coverage
+nose
+freshen
+
+-e git://github.com/cmheisel/nose-xcover.git#egg=nosexcover
+-e git://github.com/jbalogh/django-nose.git#egg=django_nose

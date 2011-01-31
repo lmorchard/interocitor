@@ -1,0 +1,15 @@
+{% extends "main/base.html" %}
+
+{% load i18n %}
+{% load ifsetting_tag %}
+{% load uni_form_tags %}
+
+{% block head_title %}{% trans "Entry" %}{% endblock %}
+
+{% block body %}
+    <h1>{% trans "Entry" %}</h1>
+
+    <ul class="hfeed">
+        {% include "main/includes/hentry.html" %}
+    </ul>
+{% endblock %}

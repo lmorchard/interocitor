@@ -15,3 +15,11 @@ body.notices #tab_notices
     border-top: 1px solid #000; /* tab border */
     border-right: 1px solid #000; /* tab border */
 }
+body #tab_search {
+}
+body #tab_search form {
+    display: inline;
+}
+body #tab_search form input {
+    margin: 0; padding: 0;
+}

@@ -1,0 +1,23 @@
+{% extends "main/base.html" %}
+
+{% load i18n %}
+{% load ifsetting_tag %}
+{% load uni_form_tags %}
+
+{% block head_title %}{% trans "Post" %}{% endblock %}
+
+{% block body %}
+    <h1>{% trans "Post" %}</h1>
+    
+    <form enctype="multipart/form-data" action="" method="POST" id="entry-form" class="uniForm">
+        {% csrf_token %}
+        <fieldset class="inlineLabels">
+            {{ form|as_uni_form }}
+            <div class="form_block">
+                <input type="submit" name="action_create" 
+                    value="{% trans "Post Entry" %}" />
+            </div>
+        </fieldset>
+    </form>
+
+{% endblock %}
