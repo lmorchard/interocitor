@@ -16,12 +16,10 @@ var Main = (function () {
 
         wireUpEmbedly: function () {
             $('.hfeed .hentry').each(function () {
-                var entry_el = $(this);
-                var title_el = entry_el.find('.entry-title');
-                var href = title_el.find('a').attr('href');
-                var new_embed = $('<a></a>').attr('href', href);
-                title_el.after(new_embed);
-                new_embed.embedly();
+                $(this).find('.entry-title a').embedly({
+                    maxWidth: 600, maxHeight: 400, 
+                    method: 'afterParent'
+                });
             });
         },
 
