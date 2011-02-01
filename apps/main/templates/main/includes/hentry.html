@@ -12,7 +12,7 @@
         {% endif %}
     </h4>
     <address class="author">{{ entry.actor_user }}</address>
-    <time class="published" pubdate="pubdate" 
+    <time class="published timeago" pubdate="pubdate" 
         datetime="{{entry.published|date:"Y-m-d\TH:i:sO"}}" 
         title="{{entry.published|date:"Y-m-d\TH:i:sO"}}">
         <a rel="bookmark" href="{{entry.get_absolute_url}}">{{entry.published|date:"DATETIME_FORMAT"}}</a>

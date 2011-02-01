@@ -11,7 +11,12 @@ var Main = (function () {
         },
 
         ready: function () {
+            $this.wireUpTimeAgo();
             $this.wireUpEmbedly();
+        },
+
+        wireUpTimeAgo: function () {
+            $('time.timeago').timeago();
         },
 
         wireUpEmbedly: function () {

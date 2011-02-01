@@ -46,6 +46,9 @@ ul.hfeed li.hentry {
 .hfeed .hentry .entry-summary {
     padding: 0; margin: 0.5em 1em 0.5em 1em;
 }
+.hfeed .hentry .embed img {
+    /* display: block; */
+}
 .hfeed .hentry ul.tags {
     padding: 0; margin: 0.5em 0 0.5em 0;
 }
