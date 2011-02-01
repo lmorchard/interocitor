@@ -1,0 +1,15 @@
+#tabhead {
+    background-image: none;
+}
+.logo h1 {
+    padding: 0.5em 0.25em;
+}
+.logo h1 a:before {
+    content:"\25bc\00a0";
+}
+.logo h1 a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 150%;
+}
+
