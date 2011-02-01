@@ -1,0 +1,65 @@
+/**
+ * Styles for main app
+ */
+ul.hfeed {
+    list-style: none;
+    margin: 0; padding: 0;
+}
+ul.hfeed li.hentry {
+    margin: 1.5em 0.25em;
+    position: relative;
+}
+.hfeed .hentry .entry-title {
+    margin: 0; padding: 0;
+}
+.hfeed .hentry .entry-title:before {
+    position: absolute;
+    left: -1.125em;
+    top: -0.25em;
+    font-size: 2.75em;
+}
+.hfeed .hentry.object-bookmark .entry-title:before { content: "\27A6"; }
+.hfeed .hentry.object-article .entry-title:before { content: "\270D"; }
+.hfeed .hentry.object-status .entry-title:before {
+    content: "\203B";
+    content: "\205C";
+    content: "\2042";
+    content: "\2749";
+}
+.hfeed .hentry.object-status .entry-title a {
+    font-size: 150%;
+}
+.hfeed .hentry .published {
+    display: block;
+    position: absolute;
+    text-align: right;
+    width: 14ex;
+    top: 0em;
+    left: -26ex;
+    font-size: 0.75em;
+}
+.hfeed .hentry .published a {
+    display: block;
+    color: #666;
+    text-decoration: none;
+}
+.hfeed .hentry .entry-summary {
+    padding: 0; margin: 0.5em 1em 0.5em 1em;
+}
+.hfeed .hentry ul.tags {
+    padding: 0; margin: 0.5em 0 0.5em 0;
+}
+.hfeed .hentry ul.tags li {
+    display: inline;
+}
+.hfeed .hentry ul.tags li:before {
+    content: "\204D";
+}
+.hfeed .hentry ul.tags li a {
+    padding-left: 0.25em;
+    padding-right: 0.5em;
+}
+.profile .hfeed .hentry address.author {
+    display: none;
+}
+
